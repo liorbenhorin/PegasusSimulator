@@ -17,7 +17,7 @@ integration as well as custom python control interface. At the moment, only mult
    <a href="https://youtu.be/_11OCFwf_GE" target="_blank"><img src="_static/mini demo.gif" alt="Pegasus Simulator gif" align="center" height="50"/></a>
    </p>
 
-If you use ``PegasusSimulator`` in your work, please cite the `paper <https://arxiv.org/>`_:
+Paper of the ``PegasusSimulator`` coming soon:
 
 .. code-block:: bibtex
 
