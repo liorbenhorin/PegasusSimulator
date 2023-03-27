@@ -55,6 +55,9 @@ class PegasusApp:
         else:
             self.pg.load_environment(world)
 
+        # Auxiliar variable for the timeline callback example
+        self.stop_sim = False
+
     def start(self):
 
         # Reset the simulation environment so that all articulations (aka robots) are initialized
