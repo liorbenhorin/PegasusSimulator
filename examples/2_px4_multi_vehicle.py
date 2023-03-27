@@ -7,7 +7,6 @@
 """
 
 # Imports to start Isaac Sim from this script
-import carb
 from omni.isaac.kit import SimulationApp
 
 # Start Isaac Sim's simulation environment
@@ -18,20 +17,17 @@ simulation_app = SimulationApp({"headless": False})
 # -----------------------------------
 # The actual script should start here
 # -----------------------------------
-import omni.timeline
-from omni.isaac.core.world import World
 
 # Import the Pegasus API for simulating drones
-from pegasus.simulator.params import ROBOTS, SIMULATION_ENVIRONMENTS
-from pegasus.simulator.logic.state import State
+from pegasus.simulator.params import ROBOTS
+from pegasus.simulator.pegasus_app import PegasusApp
 from pegasus.simulator.logic.backends.mavlink_backend import MavlinkBackend, MavlinkBackendConfig
 from pegasus.simulator.logic.vehicles.multirotor import Multirotor, MultirotorConfig
-from pegasus.simulator.logic.interface.pegasus_interface import PegasusInterface
 
 # Auxiliary scipy and numpy modules
 from scipy.spatial.transform import Rotation
 
-class PegasusApp:
+class PX4ExampleApp(PegasusApp):
     """
     A Template class that serves as an example on how to build a simple Isaac Sim standalone App.
     """
@@ -41,36 +37,20 @@ class PegasusApp:
         Method that initializes the PegasusApp and is used to setup the simulation environment.
         """
 
-        # Acquire the timeline that will be used to start/stop the simulation
-        self.timeline = omni.timeline.get_timeline_interface()
-
-        # Start the Pegasus Interface
-        self.pg = PegasusInterface()
-
-        # Acquire the World, .i.e, the singleton that controls that is a one stop shop for setting up physics, 
-        # spawning asset primitives, etc.
-        self.pg._world = World(**self.pg._world_settings)
-        self.world = self.pg.world
-
-        # Launch one of the worlds provided by NVIDIA
-        self.pg.load_environment(SIMULATION_ENVIRONMENTS["Curved Gridroom"])
+        super().__init__(simulation_app, world="Curved Gridroom")
 
         # Spawn 5 vehicles with the PX4 control backend in the simulation, separated by 1.0 m along the x-axis
         for i in range(5):
-            self.vehicle_factory(i, gap_x_axis=1.0)
-        
+            self.vehicle_factory(i, gap_x_axis=1.0)        
 
-        # Reset the simulation environment so that all articulations (aka robots) are initialized
-        self.world.reset()
-
-        # Auxiliar variable for the timeline callback example
-        self.stop_sim = False
+        # Start the simulation
+        self.start()
 
     def vehicle_factory(self, vehicle_id: int, gap_x_axis: float):
         """Auxiliar method to create multiple multirotor vehicles
 
         Args:
-            vehicle_id (_type_): _description_
+            vehicle_id (_type_): The ID of the vehicle
         """
 
         # Create the vehicle
@@ -78,7 +58,12 @@ class PegasusApp:
         config_multirotor = MultirotorConfig()
         
         # Create the multirotor configuration
-        mavlink_config = MavlinkBackendConfig({"vehicle_id": vehicle_id, "px4_autolaunch": True, "px4_dir": "/home/marcelo/PX4-Autopilot", "px4_vehicle_model": 'iris'})
+        mavlink_config = MavlinkBackendConfig({
+            "vehicle_id": vehicle_id, 
+            "px4_autolaunch": True, 
+            "px4_dir": "/home/marcelo/PX4-Autopilot", 
+            "px4_vehicle_model": 'iris'}
+        )
         config_multirotor.backends = [MavlinkBackend(mavlink_config)]
 
         Multirotor(
@@ -89,29 +74,10 @@ class PegasusApp:
             Rotation.from_euler("XYZ", [0.0, 0.0, 0.0], degrees=True).as_quat(),
             config=config_multirotor)
 
-    def run(self):
-        """
-        Method that implements the application main loop, where the physics steps are executed.
-        """
-
-        # Start the simulation
-        self.timeline.play()
-
-        # The "infinite" loop
-        while simulation_app.is_running() and not self.stop_sim:
-
-            # Update the UI of the app and perform the physics step
-            self.world.step(render=True)
-        
-        # Cleanup and stop
-        carb.log_warn("PegasusApp Simulation App is closing.")
-        self.timeline.stop()
-        simulation_app.close()
-
 def main():
 
     # Instantiate the template app
-    pg_app = PegasusApp()
+    pg_app = PX4ExampleApp()
 
     # Run the application loop
     pg_app.run()
