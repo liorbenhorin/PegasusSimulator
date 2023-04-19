@@ -249,7 +249,7 @@ sensor based on a dictionary input should be performed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pegasus.simulator.logic.sensors.sensor.Sensor.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_alt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pegasus.simulator.logic.sensors.sensor.Sensor.initialize" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_alt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vehicle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pegasus.simulator.logic.sensors.sensor.Sensor.initialize" title="Permalink to this definition"></a></dt>
 <dd><p>Method that initializes the sensor latitude, longitude and altitude attributes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -262,6 +262,7 @@ of the world, then we might as well just save this information for whatever sens
 <li><p><strong>origin_lat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The latitude of the origin of the world in degrees (might get used by some sensors).</p></li>
 <li><p><strong>origin_lon</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The longitude of the origin of the world in degrees (might get used by some sensors).</p></li>
 <li><p><strong>origin_alt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The altitude of the origin of the world relative to sea water level (might get used by some sensors).</p></li>
+<li><p><strong>vehicle</strong> (<a class="reference internal" href="vehicles.vehicle.html#pegasus.simulator.logic.vehicles.vehicle.Vehicle" title="pegasus.simulator.logic.vehicles.vehicle.Vehicle"><em>Vehicle</em></a>) – The vehicle that this sensor is attached to.</p></li>
 </ul>
 </dd>
 </dl>
