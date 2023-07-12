@@ -144,26 +144,26 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.__init__" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(vehicle_id[, num_rotors])</p></td>
 <td><p>Initialize the Backend class</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.input_reference" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.input_reference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">input_reference</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.check_ros_extension" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.check_ros_extension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_ros_extension</span></code></a>()</p></td>
+<td><p>Method that checks which ROS extension is installed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.input_reference" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.input_reference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">input_reference</span></code></a>()</p></td>
 <td><p>Method that is used to return the latest target angular velocities to be applied to the vehicle</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.reset" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.reset" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
 <td><p>Method that when implemented, should handle the reset of the vehicle simulation to its original state</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.rotor_callback" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.rotor_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotor_callback</span></code></a>(ros_msg, rotor_id)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.rotor_callback" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.rotor_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotor_callback</span></code></a>(ros_msg, rotor_id)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.start" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.start" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>()</p></td>
 <td><p>Method that when implemented should handle the begining of the simulation of vehicle</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.stop" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.stop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.stop" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.stop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code></a>()</p></td>
 <td><p>Method that when implemented should handle the stopping of the simulation of vehicle</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(dt)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(dt)</p></td>
 <td><p>Method that when implemented, should be used to update the state of the backend and the information being sent/received from the communication interface.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update_camera_data" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update_camera_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_camera_data</span></code></a>(data)</p></td>
-<td><p>Method used to update the data received by the RGB camera.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update_gps_data" title="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update_gps_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_gps_data</span></code></a>(data)</p></td>
 <td><p></p></td>
@@ -191,6 +191,12 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.check_ros_extension">
+<span class="sig-name descname"><span class="pre">check_ros_extension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.check_ros_extension" title="Permalink to this definition"></a></dt>
+<dd><p>Method that checks which ROS extension is installed.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.input_reference">
 <span class="sig-name descname"><span class="pre">input_reference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.input_reference" title="Permalink to this definition"></a></dt>
 <dd><p>Method that is used to return the latest target angular velocities to be applied to the vehicle</p>
@@ -210,7 +216,9 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.rotor_callback">
 <span class="sig-name descname"><span class="pre">rotor_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ros_msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotor_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.rotor_callback" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.start">
@@ -230,20 +238,6 @@
 <dd><p>Method that when implemented, should be used to update the state of the backend and the information being sent/received
 from the communication interface. This method will be called by the simulation on every physics step</p>
 <dl class="field-list simple">
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update_camera_data">
-<span class="sig-name descname"><span class="pre">update_camera_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pegasus.simulator.logic.backends.ros2_backend.ROS2Backend.update_camera_data" title="Permalink to this definition"></a></dt>
-<dd><p>Method used to update the data received by the RGB camera. Note: since
-encoding the image to bytes is a costly operation, we will we will only
-do this step in another thread, and we will only publish the image
-message in this thread after the encoding is done.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – Dictionary with the frame and its metadata</p>
-</dd>
 </dl>
 </dd></dl>
 
