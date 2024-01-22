@@ -228,7 +228,7 @@ class PegasusInterface:
         # Reset and pause the world simulation (only if force_clear is true)
         # This is done to maximize the support between running in GUI as extension vs App
         if force_clear == True:
-            await self.world.reset_async()
+            # await self.world.reset_async()
             await self.world.stop_async()
 
         # Load the USD asset that will be used for the environment
