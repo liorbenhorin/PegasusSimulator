@@ -1,5 +1,5 @@
 global_coordinates:
-  altitude: 90.0
-  latitude: 38.736832
-  longitude: -9.137977
-px4_dir: ~/PX4-Autopilot
+  altitude: 20.0
+  latitude: 32.06288146972656
+  longitude: 34.761600494384766
+px4_dir: /home/lbenhorin/PX4-Autopilot
