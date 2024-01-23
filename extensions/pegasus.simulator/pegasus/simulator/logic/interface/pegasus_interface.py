@@ -20,6 +20,7 @@ from omni.isaac.core.world import World
 from omni.isaac.core.utils.stage import clear_stage
 from omni.isaac.core.utils.viewports import set_camera_view
 import omni.isaac.core.utils.nucleus as nucleus
+from omni.kit.async_engine import run_coroutine
 
 # Pegasus Simulator internal API
 from pegasus.simulator.params import DEFAULT_WORLD_SETTINGS, SIMULATION_ENVIRONMENTS, CONFIG_FILE
@@ -146,6 +147,7 @@ class PegasusInterface:
         """Method that initializes the world object
         """
         self._world = World(**self._world_settings)
+        run_coroutine(self._world.initialize_simulation_context_async())
         #asyncio.ensure_future(self._world.initialize_simulation_context_async())
 
     def get_vehicle(self, stage_prefix: str):
