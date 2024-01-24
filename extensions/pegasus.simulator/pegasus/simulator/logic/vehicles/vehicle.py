@@ -89,7 +89,7 @@ class Vehicle(Robot):
 
         # Add this object for the world to track, so that if we clear the world, this object is deleted from memory and
         # as a consequence, from the VehicleManager as well
-        self._world.scene.add(self)
+        # self._world.scene.add(self)
 
         # Add the current vehicle to the vehicle manager, so that it knows
         # that a vehicle was instantiated
