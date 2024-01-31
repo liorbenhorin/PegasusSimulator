@@ -204,7 +204,7 @@ class PegasusInterface:
         # Clear the world
         if self.world is not None:
             self.world.clear_all_callbacks()
-            # self.world.clear()
+            self.world.clear()
 
         # Clear the stage
         clear_stage()
