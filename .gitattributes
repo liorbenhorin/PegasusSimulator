@@ -2,3 +2,4 @@ docs/_static/logo_isr.png filter=lfs diff=lfs merge=lfs -text
 extensions/pegasus.simulator/pegasus/simulator/assets/Worlds/Lisbon.usd filter=lfs diff=lfs merge=lfs -text
 extensions/pegasus.simulator/pegasus/simulator/assets/Worlds/Lisbon_Parque_Nacoes.usdc filter=lfs diff=lfs merge=lfs -text
 docs/_static/mini[[:space:]]demo.gif filter=lfs diff=lfs merge=lfs -text
+docs/_static/tutorials/go_to_location.png filter=lfs diff=lfs merge=lfs -text
